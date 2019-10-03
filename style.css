@@ -9,7 +9,8 @@
     font-family: 'Palanquin Dark', sans-serif;
 }
 
-.inputbox {
+.address {
+    margin: 0-auto;
     width: 30%;
     font-family: 'Palanquin Dark' , sans-serif;
 }
