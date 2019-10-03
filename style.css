@@ -1,11 +1,19 @@
 /* Dillons code */
 .my-header{
+    font-family: 'Palanquin Dark', sans-serif;
     margin: 0 auto;
     margin-top: 1%;
     width: 60%;
     background-color: #546e7a;
-
+    border-radius: 15px;
+    border: 2px solid #ffffff;
 }
+
+.map {
+    height: 100%;
+    width: 100%;
+  }
+
 
 /* end */
 
