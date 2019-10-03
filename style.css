@@ -21,4 +21,16 @@
 
 /* Meeras code */
 
+
+.searchbar {
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: white;
+    width: 30%;
+    text-align: center;
+    margin: 0 auto;
+    /* margin-right:auto;
+    margin-left:auto; */
+    font-family: 'Palanquin Dark', sans-serif;
+}
 /* end */
