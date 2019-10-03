@@ -1,10 +1,10 @@
 
 
-//Lawrence's Messing around with stuff  
-var googleKey;
+//Lawrence's Messing around with stuff
+
 // Accessing Location iq Api
 var locationIqKey = "785528bf443c15"
-var searchStr = "Los Angeles".replace(' ', '+');
+var searchStr = "Los Angelos".replace(' ', '+');
 console.log()
 var queryURL = "https://us1.locationiq.com/v1/search.php?key=" + locationIqKey + "&q=" + searchStr + "&format=json";
 
@@ -15,10 +15,11 @@ $.ajax({
   url: queryURL,
   method: "GET"
 }).then(function(response) {
-  console.log(response);
+
     var lat = response[0].lat
     var lon = response[0].lon
-    
+    console.log("Latitude is " + lat);
+    console.log("Longitute is " + lon);
     useHikingApi(lat,lon)
   
 
@@ -33,8 +34,7 @@ var hikingProjectKey = "200607956-eec4e186d6b9ed72c720132ab61fceb2";
 
 var lat = x.slice(0,-3)
 var lon = y.slice(0,-3)
-console.log("Latitude is " + lat);
-  console.log("Longitute is " + lon);
+
 var queryURL = "https://www.hikingproject.com/data/get-trails?lat="+ lat +"&lon="+ lon +"&maxDistance=10&key=" + hikingProjectKey;
 console.log(queryURL)
 
@@ -47,12 +47,8 @@ $.ajax({
   
 
 })
+}
 
-<<<<<<< Updated upstream
-=======
-} 
-
->>>>>>> Stashed changes
 // DILLON'S MOCK MAP
 // Initialize and add the map
 function initMap() {
