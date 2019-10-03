@@ -2,7 +2,7 @@
 
 // Accessing Location iq Api
 var locationIqKey = "785528bf443c15"
-var searchStr = "Los Angelos".replace(' ', '+');
+var searchStr = "Redrock, California".replace(' ', '+');
 console.log()
 var queryURL = "https://us1.locationiq.com/v1/search.php?key=" + locationIqKey + "&q=" + searchStr + "&format=json";
 
@@ -13,7 +13,7 @@ $.ajax({
   url: queryURL,
   method: "GET"
 }).then(function(response) {
-
+    console.log(response);
     var lat = response[0].lat
     var lon = response[0].lon
     console.log("Latitude is " + lat);
@@ -42,7 +42,6 @@ $.ajax({
 }).then(function(response) {
 
   console.log(response);
-  
-
 })
 }
+
