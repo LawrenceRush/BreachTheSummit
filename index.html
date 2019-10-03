@@ -29,9 +29,10 @@
         </ul> -->
             </div>
     </nav>
-    <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d93725.34571522946!2d-117.88749170445406!3d33.68200216048048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dcde088771d741%3A0x2a199fc49b78b9e5!2sUCI%20Transportation%20and%20Distribution%20Services!5e0!3m2!1sen!2sus!4v1570133292416!5m2!1sen!2sus"
-        width="1500" height="850" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+
+    <br>
+    
+    <div id="map"></div>
 
 
 
@@ -45,9 +46,11 @@
     <!-- END -->
 
     <!-- SCRIPTS -->
+    <script src="app.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.0.1/build/ol.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="app.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-6ajFt-NtorPAmAQdA5TrorG0nzViItY&callback=initMap">
+    </script>
 </body>
 
 </html>
