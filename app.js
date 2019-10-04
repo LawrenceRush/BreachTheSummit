@@ -57,8 +57,15 @@ function useHikingApi(x, y) {
 
         console.log(response);
         var center = new google.maps.LatLng(latitude,longitute);
+        
+        map.setZoom(10);
         map.panTo(center);
         
+
+//         var marker = new google.maps.Marker({
+//         position: center,
+//         title:"Hello World!"    
+// });
 
         
     })
