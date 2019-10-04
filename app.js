@@ -1,31 +1,45 @@
 
 
-//Lawrence's Messing around with stuff
+//Lawrence's stuff
+
+//Submit Button
+$( "#submit" ).click(testAPI)
 
 // Accessing Location iq Api
-var locationIqKey = "785528bf443c15"
-var searchStr = "Los Angelos".replace(' ', '+');
-console.log()
-var queryURL = "https://us1.locationiq.com/v1/search.php?key=" + locationIqKey + "&q=" + searchStr + "&format=json";
+var latitude = -25.344;
+var longitute = 131.036;
 
 
-//var queryURL = https:
 
-$.ajax({
+function testAPI(){
+
+  var userSearch = $("#user-search").val();
+  console.log(userSearch);
+  var locationIqKey = "785528bf443c15"
+  var searchStr = userSearch.replace(' ', '+');
+  var queryURL = "https://us1.locationiq.com/v1/search.php?key=" + locationIqKey + "&q=" + searchStr + "&format=json";
+  $.ajax({
     url: queryURL,
     method: "GET"
 }).then(function (response) {
 
     var lat = response[0].lat
+    latitude = lat
     var lon = response[0].lon
+    longitute = lon
     console.log("Latitude is " + lat);
+    console.log(latitude)
     console.log("Longitute is " + lon);
     useHikingApi(lat, lon)
+    console.log(longitute);
 
 
 })
 
-//Accessing High"
+  latitude = parseFloat(latitude);
+  longitute = parseFloat(longitute);
+}
+//Accessing HikingProject API"
 
 
 function useHikingApi(x, y) {
@@ -44,20 +58,36 @@ function useHikingApi(x, y) {
     }).then(function (response) {
 
         console.log(response);
+        var center = new google.maps.LatLng(latitude,longitute);
+        map.panTo(center);
+        
 
-
+        
     })
 }
+
+
+   
+var map
 
 // DILLON'S MOCK MAP
 // Initialize and add the map
 function initMap() {
     // The location of Uluru
-    var uluru = { lat: -25.344, lng: 131.036 };
+    var uluru = { lat: latitude, lng: longitute };
     // The map, centered at Uluru
-    var map = new google.maps.Map(
+    map = new google.maps.Map(
         document.getElementById('map'), { zoom: 4, center: uluru });
     // The marker, positioned at Uluru
     var marker = new google.maps.Marker({ position: uluru, map: map });
+    
 }
 
+
+
+
+
+
+
+
+  
