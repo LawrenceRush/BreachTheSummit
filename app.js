@@ -1,5 +1,3 @@
-
-
 //Lawrence's stuff
 
 //Submit Button
@@ -12,7 +10,7 @@ var longitute = 131.036;
 
 
 function testAPI(){
-
+    $("#side-bar").addClass("visible");
   var userSearch = $("#user-search").val();
   console.log(userSearch);
   var locationIqKey = "785528bf443c15"
