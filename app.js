@@ -61,7 +61,3 @@ function initMap() {
     var marker = new google.maps.Marker({ position: uluru, map: map });
 }
 
-var scale = Math.min( 
-    availableWidth / contentWidth, 
-    availableHeight / contentHeight 
-  );
