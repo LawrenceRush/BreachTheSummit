@@ -61,11 +61,10 @@ function useHikingApi(x, y) {
         map.setZoom(10);
         map.panTo(center);
         
-
-//         var marker = new google.maps.Marker({
-//         position: center,
-//         title:"Hello World!"    
-// });
+        marker = new google.maps.Marker({
+            position: center,
+            map: map
+        });
 
         
     })
@@ -87,6 +86,7 @@ function initMap() {
     var marker = new google.maps.Marker({ position: uluru, map: map });
     
 }
+
 
 
 
