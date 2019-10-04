@@ -1,0 +1,90 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Dillons code */
+.my-header{
+    font-family: 'Palanquin Dark', sans-serif;
+    margin: 0 auto;
+    margin-top: 1%;
+    width: 50%;
+    background-color: #546e7a;
+    border-radius: 15px;
+    border: 2px solid #ffffff;
+    z-index: 15;
+    position: fixed;
+    left: 25%;
+}
+
+.main-title{
+    font-size: 2.5vw;
+}
+
+
+#map {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    background-color: grey;
+  }
+
+/* end */
+
+/* Meeras code */
+
+
+.searchbar {
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: white;
+    width: 30%;
+    text-align: center;
+    margin: 0 auto;
+    /* margin-right:auto;
+    margin-left:auto; */
+    font-family: 'Palanquin Dark', sans-serif;
+    z-index: 15;
+    position: fixed;
+    left: 35%;
+    top: 15%;
+}
+
+#side-bar {
+    position: fixed;
+    width: calc(25% - 130px);
+    height: calc(100% - 130px);
+    top: 0px;
+    left: -25%;
+    background-color: white;
+    box-sizing: border-box;
+    margin: 65px;
+    border-radius: 25px;
+}
+
+#side-bar.visible {
+    left: -25%;
+    -webkit-animation: slide 1s forwards;
+    animation: slide 1s forwards;
+}
+
+@-webkit-keyframes slide {
+    100% { left: 0; }
+}
+
+@keyframes slide {
+    100% { left: 0; }
+}
+/* end */
+
+/* MEDIA QUERY */
+@media only screen and (max-width: 900px){
+
+}
+
+@media only screen and (max-width: 835px){
+    .main-title{
+        font-size: 3.5vw;
+    }
+}
