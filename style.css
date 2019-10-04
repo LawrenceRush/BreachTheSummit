@@ -1,3 +1,9 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 /* Dillons code */
 .my-header{
     font-family: 'Palanquin Dark', sans-serif;
@@ -12,11 +18,22 @@
     left: 25%;
 }
 
+<<<<<<< HEAD
+=======
+.main-title{
+    font-size: 2.5vw;
+}
+
+
+>>>>>>> Lawrence
 #map {
-    margin-top: -20px;
     margin: 0 auto;
     width: 100%;
+<<<<<<< HEAD
     height: 850px;
+=======
+    height: 100%;
+>>>>>>> Lawrence
     background-color: grey;
   }
 
@@ -40,4 +57,19 @@
     left: 35%;
     top: 15%;
 }
+<<<<<<< HEAD
 /* end */
+=======
+/* end */
+
+/* MEDIA QUERY */
+@media only screen and (max-width: 900px){
+
+}
+
+@media only screen and (max-width: 835px){
+    .main-title{
+        font-size: 3.5vw;
+    }
+}
+>>>>>>> Lawrence
