@@ -8,12 +8,13 @@
     border-radius: 15px;
     border: 2px solid #ffffff;
     z-index: 5;
+    position: relative;
 }
 
 #map {
     margin: 0 auto;
-    width: 90%;
-    height: 450px;
+    width: 100%;
+    height: 850px;
     background-color: grey;
   }
 
@@ -32,5 +33,7 @@
     /* margin-right:auto;
     margin-left:auto; */
     font-family: 'Palanquin Dark', sans-serif;
+    position: relative;
+    z-index: 5;
 }
 /* end */
