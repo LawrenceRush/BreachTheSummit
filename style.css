@@ -1,3 +1,4 @@
+/* RESET */
 html, body {
     height: 100%;
     margin: 0;
@@ -6,7 +7,6 @@ html, body {
 
 /* Dillons code */
 .my-header{
-    font-family: 'Palanquin Dark', sans-serif;
     margin: 0 auto;
     margin-top: 1%;
     width: 50%;
@@ -19,7 +19,27 @@ html, body {
 }
 
 .main-title{
+    font-family: 'Palanquin Dark', sans-serif;
     font-size: 2.5vw;
+    margin-top: 0.5%; 
+    top: 8%;
+    position: relative;
+}
+
+.material-icons{
+    font-size: 30px;
+}
+
+.front-logo{
+    left: 15%;
+    bottom: 5%;
+    position: absolute;
+}
+
+.back-logo{
+    left: 80%;
+    bottom: 5%;
+    position: absolute;
 }
 
 
@@ -59,6 +79,14 @@ html, body {
 
 @media only screen and (max-width: 835px){
     .main-title{
-        font-size: 3.5vw;
+        font-size: 2.5vw;
+        top: 20%;
+    }
+}
+
+@media only screen and (max-width: 415px){
+    .main-title{
+        font-size: 2.5vw;
+        top: 20%;
     }
 }
