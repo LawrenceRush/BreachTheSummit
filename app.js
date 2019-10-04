@@ -1,8 +1,10 @@
+
+
 //Lawrence's Messing around with stuff
 
 // Accessing Location iq Api
 var locationIqKey = "785528bf443c15"
-var searchStr = "Redrock, California".replace(' ', '+');
+var searchStr = "Los Angelos".replace(' ', '+');
 console.log()
 var queryURL = "https://us1.locationiq.com/v1/search.php?key=" + locationIqKey + "&q=" + searchStr + "&format=json";
 
@@ -13,7 +15,7 @@ $.ajax({
   url: queryURL,
   method: "GET"
 }).then(function(response) {
-    console.log(response);
+
     var lat = response[0].lat
     var lon = response[0].lon
     console.log("Latitude is " + lat);
@@ -42,6 +44,19 @@ $.ajax({
 }).then(function(response) {
 
   console.log(response);
+  
+
 })
 }
 
+// DILLON'S MOCK MAP
+// Initialize and add the map
+function initMap() {
+    // The location of Uluru
+    var uluru = {lat: -25.344, lng: 131.036};
+    // The map, centered at Uluru
+    var map = new google.maps.Map(
+        document.getElementById('map'), {zoom: 4, center: uluru});
+    // The marker, positioned at Uluru
+    var marker = new google.maps.Marker({position: uluru, map: map});
+  }
