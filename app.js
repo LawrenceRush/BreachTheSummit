@@ -62,10 +62,12 @@ function useHikingApi(x, y) {
         map.setZoom(10);
         map.panTo(center);
         
-        marker = new google.maps.Marker({
-            position: center,
-            map: map
-        });
+        var iconBase = "https://img.icons8.com/color/48/000000/earth-element.png";
+        var marker = new google.maps.Marker({
+        position: center,
+        map: map,
+        icon: iconBase + "earth-element.png"
+      });
 
         
     })
@@ -84,8 +86,7 @@ function initMap() {
   map = new google.maps.Map(
       document.getElementById('map'), { zoom: 4, center: uluru });
   // The marker, positioned at Uluru
-  var marker = new google.maps.Marker({ position: center, map: map });
-    
+  
 }
 
 
