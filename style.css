@@ -12,6 +12,10 @@
     left: 25%;
 }
 
+.center{
+    font-size: 7.5vw;
+}
+
 #map {
     margin-top: -20px;
     margin: 0 auto;
