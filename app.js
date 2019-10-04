@@ -1,41 +1,44 @@
 
 
-//Lawrence's Messing around with stuff
+//Lawrence's stuff
+
+//Submit Button
+$( "#submit" ).click(testAPI)
 
 // Accessing Location iq Api
-var locationIqKey = "785528bf443c15"
-var searchStr = "Los Angeles".replace(' ', '+');
-console.log()
-var queryURL = "https://us1.locationiq.com/v1/search.php?key=" + locationIqKey + "&q=" + searchStr + "&format=json";
 var latitude = -25.344;
 var longitute = 131.036;
 
-var btn = $("#btn");
+
 
 function testAPI(){
 
+  var userSearch = $("#user-search").val();
+  console.log(userSearch);
+  var locationIqKey = "785528bf443c15"
+  var searchStr = userSearch.replace(' ', '+');
+  var queryURL = "https://us1.locationiq.com/v1/search.php?key=" + locationIqKey + "&q=" + searchStr + "&format=json";
   $.ajax({
     url: queryURL,
     method: "GET"
 }).then(function (response) {
-
-  var userSearch = $("#user-search").val();
-  console.log(userSearch);
 
   var lat = response[0].lat
   latitude = lat
   var lon = response[0].lon
   longitute = lon
   console.log("Latitude is " + lat);
+  console.log(latitude)
   console.log("Longitute is " + lon);
   useHikingApi(lat, lon)
+  console.log(longitute);
 
 
 })
 
-//button
-$(btn).on("click", )
-
+  latitude = parseFloat(latitude);
+  longitute = parseFloat(longitute);
+}
 //Accessing HikingProject API"
 
 
@@ -50,12 +53,12 @@ function useHikingApi(x, y) {
   console.log(queryURL)
 
   $.ajax({
-    url: queryURL,
-    method: "GET"
+      url: queryURL,
+      method: "GET"
   }).then(function (response) {
 
     console.log(response);
-    var center = new google.maps.LatLng(lat,lon);
+    var center = new google.maps.LatLng(latitude,longitute);
     map.panTo(center);
         
 
@@ -63,7 +66,7 @@ function useHikingApi(x, y) {
   })
 }
 
-}
+
    
 var map
 
@@ -79,7 +82,6 @@ function initMap() {
   var marker = new google.maps.Marker({ position: uluru, map: map });
     
 }
-
 
 
 
