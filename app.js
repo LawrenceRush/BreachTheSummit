@@ -1,5 +1,3 @@
-
-
 //Lawrence's stuff
 
 //Submit Button
@@ -12,7 +10,7 @@ var longitute = 131.036;
 
 
 function testAPI(){
-
+    $("#side-bar").addClass("visible");
   var userSearch = $("#user-search").val();
   console.log(userSearch);
   var locationIqKey = "785528bf443c15"
@@ -23,16 +21,15 @@ function testAPI(){
     method: "GET"
 }).then(function (response) {
 
-  var lat = response[0].lat
-  latitude = lat
-  var lon = response[0].lon
-  longitute = lon
-  console.log("Latitude is " + lat);
-  console.log(latitude)
-  console.log("Longitute is " + lon);
-  useHikingApi(lat, lon)
-  console.log(longitute);
-  initMap();
+    var lat = response[0].lat
+    latitude = lat
+    var lon = response[0].lon
+    longitute = lon
+    console.log("Latitude is " + lat);
+    console.log(latitude)
+    console.log("Longitute is " + lon);
+    useHikingApi(lat, lon)
+    console.log(longitute);
 
 })
 
@@ -57,13 +54,13 @@ function useHikingApi(x, y) {
       method: "GET"
   }).then(function (response) {
 
-    console.log(response);
-    var center = new google.maps.LatLng(latitude,longitute);
-    map.panTo(center);
+        console.log(response);
+        var center = new google.maps.LatLng(latitude,longitute);
+        map.panTo(center);
         
     
         
-  })
+    })
 }
 
 
@@ -73,12 +70,13 @@ var map
 // DILLON'S MOCK MAP
 // Initialize and add the map
 function initMap() {
-  // The location of Uluru
-  var uluru = { lat: latitude, lng: longitute };
-  // The map, centered at Uluru
-  map = new google.maps.Map(document.getElementById('map'), { zoom: 4, center: uluru });
-  // The marker, positioned at Uluru
-  var marker = new google.maps.Marker({ zoom: 7, position: uluru, map: map});
+    // The location of Uluru
+    var uluru = { lat: latitude, lng: longitute };
+    // The map, centered at Uluru
+    map = new google.maps.Map(
+        document.getElementById('map'), { zoom: 4, center: uluru });
+    // The marker, positioned at Uluru
+    var marker = new google.maps.Marker({ position: uluru, map: map });
     
 }
 

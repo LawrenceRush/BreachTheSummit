@@ -1,3 +1,9 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 /* Dillons code */
 .my-header{
     font-family: 'Palanquin Dark', sans-serif;
@@ -20,7 +26,7 @@
 #map {
     margin: 0 auto;
     width: 100%;
-    height: 700px;
+    height: 100%;
     background-color: grey;
   }
 
@@ -44,9 +50,39 @@
     left: 35%;
     top: 15%;
 }
+
+#side-bar {
+    position: fixed;
+    width: calc(25% - 130px);
+    height: calc(100% - 130px);
+    top: 0px;
+    left: -25%;
+    background-color: white;
+    box-sizing: border-box;
+    margin: 65px;
+    border-radius: 25px;
+}
+
+#side-bar.visible {
+    left: -25%;
+    -webkit-animation: slide 1s forwards;
+    animation: slide 1s forwards;
+}
+
+@-webkit-keyframes slide {
+    100% { left: 0; }
+}
+
+@keyframes slide {
+    100% { left: 0; }
+}
 /* end */
 
 /* MEDIA QUERY */
+@media only screen and (max-width: 900px){
+
+}
+
 @media only screen and (max-width: 835px){
     .main-title{
         font-size: 3.5vw;
