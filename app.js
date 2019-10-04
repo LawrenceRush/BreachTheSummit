@@ -9,7 +9,7 @@ console.log()
 var queryURL = "https://us1.locationiq.com/v1/search.php?key=" + locationIqKey + "&q=" + searchStr + "&format=json";
 
 
-//var queryURL = https:
+
 
 $.ajax({
   url: queryURL,
@@ -25,7 +25,7 @@ $.ajax({
 
 })
 
-//Accessing High"
+//Accessing HikingProject API"
 
 
 function useHikingApi(x,y){
