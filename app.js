@@ -16,20 +16,22 @@ function testAPI(){
   var locationIqKey = "785528bf443c15"
   var searchStr = userSearch.replace(' ', '+');
   var queryURL = "https://us1.locationiq.com/v1/search.php?key=" + locationIqKey + "&q=" + searchStr + "&format=json";
+  
+  
   $.ajax({
-    url: queryURL,
-    method: "GET"
+  url: queryURL,
+  method: "GET"
 }).then(function (response) {
 
-    var lat = response[0].lat
-    latitude = lat
-    var lon = response[0].lon
-    longitute = lon
-    console.log("Latitude is " + lat);
-    console.log(latitude)
-    console.log("Longitute is " + lon);
-    useHikingApi(lat, lon)
-    console.log(longitute);
+  var lat = response[0].lat
+  latitude = lat
+  var lon = response[0].lon
+  longitute = lon
+  console.log("Latitude is " + lat);
+  console.log(latitude)
+  console.log("Longitute is " + lon);
+  useHikingApi(lat, lon)
+  console.log(longitute);
 
 })
 
@@ -50,13 +52,13 @@ function useHikingApi(x, y) {
   console.log(queryURL)
 
   $.ajax({
-      url: queryURL,
-      method: "GET"
+    url: queryURL,
+    method: "GET"
   }).then(function (response) {
 
-        console.log(response);
-        var center = new google.maps.LatLng(latitude,longitute);
-        map.panTo(center);
+    console.log(response);
+    var center = new google.maps.LatLng(latitude,longitute);
+    map.panTo(center);
         
     
         
@@ -64,19 +66,19 @@ function useHikingApi(x, y) {
 }
 
 
-   
+var center = new google.maps.LatLng(latitude,longitute);
 var map
 
 // DILLON'S MOCK MAP
 // Initialize and add the map
 function initMap() {
-    // The location of Uluru
-    var uluru = { lat: latitude, lng: longitute };
-    // The map, centered at Uluru
-    map = new google.maps.Map(
-        document.getElementById('map'), { zoom: 4, center: uluru });
-    // The marker, positioned at Uluru
-    var marker = new google.maps.Marker({ position: uluru, map: map });
+  // The location of Uluru
+  var uluru = { lat: latitude, lng: longitute };
+  // The map, centered at Uluru
+  map = new google.maps.Map(
+      document.getElementById('map'), { zoom: 4, center: uluru });
+  // The marker, positioned at Uluru
+  var marker = new google.maps.Marker({ position: center, map: map });
     
 }
 
