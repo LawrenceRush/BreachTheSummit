@@ -82,6 +82,8 @@ function useHikingApi(x, y) {
         console.log("cat")
         $("#side-bar").removeClass("visible");
         $("#side-bar").addClass("hidden");
+        $(".z-depth-4").removeClass("slide-out");
+        $(".z-depth-4").addClass("slide-in");
 
 })
         console.log(response);

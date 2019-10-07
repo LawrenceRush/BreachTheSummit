@@ -36,6 +36,25 @@ html, body {
     100% { top: -25%; }
 }
 
+.my-header.slide-in{
+    top: -25%;
+    -webkit-animation: slide-in-top 2s forwards;
+    animation: slide-in-top 2s forwards;
+}
+
+.searchbar.slide-in{
+    top: -25%;
+    -webkit-animation: slide-in-top 2s backwards;
+    animation: slide-in-top 2s backwards;
+}
+@-webkit-keyframes slide-in-top {
+    100% { top: 0%; }
+}
+
+@keyframes slide-in-top {
+    100% { top: 15%; }
+}
+
 .main-title{
     font-family: 'Palanquin Dark', sans-serif;
     font-size: 2.5vw;
