@@ -32,6 +32,7 @@ function testAPI() {
     $("#side-bar").removeClass("hidden");
     $("#side-bar").addClass("visible");
     $(".z-depth-4").addClass("slide-out");
+    $(".z-depth-4").removeClass("slide-in");
     var userSearch = $("#user-search").val();
     console.log(userSearch);
     var locationIqKey = "785528bf443c15"
