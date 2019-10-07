@@ -8,7 +8,6 @@ $( "#submit" ).click(testAPI)
 var latitude = 33.6461
 var longitute = -117.8425
 
-
 //Side bar suff
  
 function fillUpSideBar(response){
