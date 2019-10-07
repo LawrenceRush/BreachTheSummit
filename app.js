@@ -11,7 +11,13 @@ var longitute = -117.8425
 //Side bar suff
 
 function fillUpSideBar(response) {
+    
     var sideBar = $("#side-bar");
+    sideBar.empty();
+    sideBar.append("<h6> Trail Listing </<h6>")
+   
+    
+    
     for (var i = 0; i < response.trails.length; i++) {
         var sideBarChild = $("<div id = 'sidebar-div'>" + (parseInt(i)+1) + "." + " Name: " + response.trails[i].name + "<br>" + "Length: " + response.trails[i].length + " mi " + "<br>" + "Difficulty: " + response.trails[i].difficulty + "<br>" + "Summary: " + response.trails[i].summary +  "<br>" + "<hr style=border: 4px solid black; />" + "</div>");
         sideBarChild.css('display', 'none');
@@ -103,8 +109,8 @@ function useHikingApi(x, y) {
                             "<div>" + "Length: " + response.trails[i].length + " miles &nbsp" + " Stars: " + response.trails[i].stars + "</div>" + "<br>" +
                             "<img src = " + response.trails[i].imgSmall + ">"
                     });
+                    infowindow.setAttribute("class", "zIndexUp")
                     infowindow.open(map, tMarker);
-
                     google.maps.event.addListener(tMarker, 'mouseout', function () {
 
                         infowindow.close(map, tMarker);
