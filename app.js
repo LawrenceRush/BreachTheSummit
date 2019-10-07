@@ -1,5 +1,6 @@
 //Lawrence's stuff
 
+
 //Submit Button
 $( "#submit" ).click(testAPI)
 
@@ -8,10 +9,25 @@ var latitude = 33.6461
 var longitute = -117.8425
 
 
+//Side bar suff
+ 
+function fillUpSideBar(response){
+    var sideBar = $("#side-bar");
+    for(var i = 0; i < response.trails.length; i++){
+    var sideBarChild = $("<div id = 'sidebar-div'>" + response.trails[i].name + "</div>");
+    sideBarChild.css('display','none');
+    sideBar.append(sideBarChild);
+    sideBarChild.show('slow');
+    }
+
+}
 
 
+
+//Function that initiates geocoding
 function testAPI(){
     $("#side-bar").addClass("visible");
+    
   var userSearch = $("#user-search").val();
   console.log(userSearch);
   var locationIqKey = "785528bf443c15"
@@ -21,7 +37,7 @@ function testAPI(){
     url: queryURL,
     method: "GET"
 }).then(function (response) {
-
+//Assign lats to use with hiking api. Latitudes for google maps api
     var lat = response[0].lat
     latitude = lat
     var lon = response[0].lon
@@ -38,7 +54,7 @@ function testAPI(){
   latitude = parseFloat(latitude);
   longitute = parseFloat(longitute);
 }
-//Accessing HikingProject API"
+//Accessing HikingProject API
 
 
 function useHikingApi(x, y) {
@@ -56,20 +72,57 @@ function useHikingApi(x, y) {
         method: "GET"
     }).then(function (response) {
 
+        fillUpSideBar(response)
         console.log(response);
         var center = new google.maps.LatLng(latitude,longitute);
         
-        map.setZoom(10);
+        map.setZoom(11);
         map.panTo(center);
         
         marker = new google.maps.Marker({
             position: center,
             map: map
         });
+        console.log(response.trails.length)
+        
+        //Google maps navigation and markers
+        
+        for (var i = 0; i < response.trails.length; i++){
+            console.log(parseFloat(response.trails[i].latitude), parseFloat(response.trails[i].longitude));
+            var tLocaton = new google.maps.LatLng(parseFloat(response.trails[i].latitude),parseFloat(response.trails[i].longitude));
+            var tMarker = new google.maps.Marker({
+                position: tLocaton,
+                map: map,
+                icon: "photos/hikingDude.png"
+            });
+            //Function for multiple marker info boxes
+            (function(tMarker, i) {
+            
+                google.maps.event.addListener(tMarker, 'mouseover', function() {
+                    infowindow = new google.maps.InfoWindow({
+                        content: "<div>" + response.trails[i].name + "</div>" + "<br>" +
+                        "<div>" + "Length: " + response.trails[i].length + " miles &nbsp"+ " Stars: " + response.trails[i].stars + "</div>" + "<br>" +
+                        "<img src = "+ response.trails[i].imgSmall +  ">"
+                    });
+                    infowindow.open(map, tMarker);
+                 
+                    google.maps.event.addListener(tMarker, 'mouseout', function() {
+                   
+                        infowindow.close(map, tMarker);
+                    });
+
+                });
+            })(tMarker, i);
+        
+            
+        }
+         
 
         
     })
 }
+
+
 
 
    
