@@ -72,9 +72,9 @@ html, body {
 
 #side-bar {
     position: fixed;
-    width: calc(25% - 130px);
+    width: calc(25% - 80px);
     height: calc(100% - 130px);
-    top: 0px;
+    top: 20px;
     left: -25%;
     background-color: white;
     box-sizing: border-box;

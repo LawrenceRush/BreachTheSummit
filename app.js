@@ -4,8 +4,9 @@
 $( "#submit" ).click(testAPI)
 
 // Accessing Location iq Api
-var latitude = -25.344;
-var longitute = 131.036;
+var latitude = 33.6461
+var longitute = -117.8425
+
 
 
 
@@ -80,18 +81,35 @@ var map
 // DILLON'S MOCK MAP
 // Initialize and add the map
 function initMap() {
-  // The location of Uluru
-  var uluru = { lat: latitude, lng: longitute };
-  // The map, centered at Uluru
-  map = new google.maps.Map(
-      document.getElementById('map'), { zoom: 4, center: uluru });
-  // The marker, positioned at Uluru
-  
+    // The location of Uluru
+    var uluru = { lat: latitude, lng: longitute };
+    // The map, centered at Uluru
+    map = new google.maps.Map(
+        document.getElementById('map'), { zoom: 4, center: uluru });
+    // The marker, positioned at Uluru
+    var marker = new google.maps.Marker({ position: uluru, map: map });
+    map.setZoom(11);
+    
 }
 
+// IP ADDRESS
 
-
-
+function ipLookUp () {
+    $.ajax('http://ip-api.com/json')
+    .then(
+        function success(response) {
+            console.log('User\'s Location Data is ', response);
+            console.log('User\'s Country', response.country);
+            
+        },
+        function fail(data, status) {
+            console.log('Request failed.  Returned status of',
+                        status);
+        }
+    );
+  }
+  
+  ipLookUp()
 
 
 
