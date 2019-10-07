@@ -98,7 +98,7 @@ function useHikingApi(x, y) {
             var tMarker = new google.maps.Marker({
                 position: tLocaton,
                 map: map,
-                icon: "photos/hikingDude.png"
+                icon: "photos/hiking.png"
             });
             //Function for multiple marker info boxes
             (function (tMarker, i) {
