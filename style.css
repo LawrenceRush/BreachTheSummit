@@ -17,6 +17,47 @@ html, body {
     left: 25%;
 }
 
+.my-header.slide-out{
+    top: 0%;
+    -webkit-animation: slide-out-top 2s forwards;
+    animation: slide-out-top 2s forwards;
+}
+
+.searchbar.slide-out{
+    top: 15%;
+    -webkit-animation: slide-out-top 2s forwards;
+    animation: slide-out-top 2s forwards;
+}
+@-webkit-keyframes slide-out-top {
+    100% { top: -25%; }
+}
+
+@keyframes slide-out-top {
+    100% { top: -25%; }
+}
+
+.my-header.slide-in{
+    top: -25%;
+    -webkit-animation: slide-in2 2s forwards;
+    animation: slide-in2 2s forwards;
+}
+
+.searchbar.slide-in{
+    top: -25%;
+    -webkit-animation: slide-in 2s forwards;
+    animation: slide-in 2s forwards;
+}
+@-webkit-keyframes slide-in {
+    100% { top: 15%; }
+}
+
+@keyframes slide-in2 {
+    100% { top: 0%; }
+}
+
+
+
+
 .main-title{
     font-family: 'Palanquin Dark', sans-serif;
     font-size: 2.5vw;
@@ -96,6 +137,8 @@ h6{
     animation: slide 1s forwards;
 }
 
+
+
 #side-bar {
     background-color: #f1f1f1;
     padding: 5px 10px 10px 20px;
@@ -130,6 +173,12 @@ h6{
     margin-top: 10px;
 }
 
+#side-bar.hidden {
+    left: 0%;
+    -webkit-animation: slideBack 1s forwards;
+    animation: slideBack 1s forwards;
+}
+
 @-webkit-keyframes slide {
     100% { left: 0; }
 }
@@ -137,6 +186,15 @@ h6{
 @keyframes slide {
     100% { left: 0; }
 }
+
+@-webkit-keyframes slideBack {
+    100% { left: -25%; }
+}
+
+@keyframes slideBack {
+    100% { left: -25%; }
+}
+
 /* end */
 
 /* MEDIA QUERY */
