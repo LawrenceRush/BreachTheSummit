@@ -1,6 +1,7 @@
 //Lawrence's stuff
 
 
+
 //Submit Button
 $("#submit").click(testAPI)
 
@@ -12,6 +13,9 @@ var longitute = -117.8425
 
 function fillUpSideBar(response) {
     var sideBar = $("#side-bar");
+    sideBar.empty();
+    sideBar.append("<button id = 'x'> X </button>")
+    sideBar.append("<h6> Trail Listing </<h6>")
     for (var i = 0; i < response.trails.length; i++) {
         var sideBarChild = $("<div id = 'sidebar-div'>" + (parseInt(i)+1) + "." + " Name: " + response.trails[i].name + "<br>" + "Length: " + response.trails[i].length + " mi " + "<br>" + "Difficulty: " + response.trails[i].difficulty + "<br>" + "Summary: " + response.trails[i].summary +  "<br>" + "<hr style=border: 4px solid black; />" + "</div>");
         sideBarChild.css('display', 'none');
@@ -25,6 +29,7 @@ function fillUpSideBar(response) {
 
 //Function that initiates geocoding
 function testAPI() {
+    $("#side-bar").removeClass("hidden");
     $("#side-bar").addClass("visible");
     $(".z-depth-4").addClass("slide-out");
     var userSearch = $("#user-search").val();
@@ -72,6 +77,13 @@ function useHikingApi(x, y) {
     }).then(function (response) {
 
         fillUpSideBar(response)
+        var hideButton = $("#x")
+        hideButton.click(function(){
+        console.log("cat")
+        $("#side-bar").removeClass("visible");
+        $("#side-bar").addClass("hidden");
+
+})
         console.log(response);
         var center = new google.maps.LatLng(latitude, longitute);
 
@@ -99,7 +111,7 @@ function useHikingApi(x, y) {
 
                 google.maps.event.addListener(tMarker, 'mouseover', function () {
                     infowindow = new google.maps.InfoWindow({
-                        content: "<div>" + response.trails[i].name + "</div>" + "<br>" +
+                        content: "<div class=zIndexUp>" + response.trails[i].name + "</div>" + "<br>" +
                             "<div>" + "Length: " + response.trails[i].length + " miles &nbsp" + " Stars: " + response.trails[i].stars + "</div>" + "<br>" +
                             "<img src = " + response.trails[i].imgSmall + ">"
                     });
@@ -121,8 +133,12 @@ function useHikingApi(x, y) {
     })
 }
 
-
-
+//function to hide side bar stuff
+var hideButton = $("#x")
+hideButton.click(function(){
+    console.log("cat")
+    $("#side-bar").addClass("hidden");
+})
 
 
 var map
