@@ -17,6 +17,25 @@ html, body {
     left: 25%;
 }
 
+.my-header.slide-out{
+    top: 0%;
+    -webkit-animation: slide-out-top 2s forwards;
+    animation: slide-out-top 2s forwards;
+}
+
+.searchbar.slide-out{
+    top: 15%;
+    -webkit-animation: slide-out-top 2s forwards;
+    animation: slide-out-top 2s forwards;
+}
+@-webkit-keyframes slide-out-top {
+    100% { top: -25%; }
+}
+
+@keyframes slide-out-top {
+    100% { top: -25%; }
+}
+
 .main-title{
     font-family: 'Palanquin Dark', sans-serif;
     font-size: 2.5vw;
