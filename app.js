@@ -1,6 +1,7 @@
 //Lawrence's stuff
 
 
+
 //Submit Button
 $("#submit").click(testAPI)
 
@@ -32,6 +33,7 @@ function fillUpSideBar(response) {
 
 //Function that initiates geocoding
 function testAPI() {
+    $("#side-bar").removeClass("hidden");
     $("#side-bar").addClass("visible");
 
     var userSearch = $("#user-search").val();
@@ -79,6 +81,13 @@ function useHikingApi(x, y) {
     }).then(function (response) {
 
         fillUpSideBar(response)
+        var hideButton = $("#x")
+        hideButton.click(function(){
+        console.log("cat")
+        $("#side-bar").removeClass("visible");
+        $("#side-bar").addClass("hidden");
+
+})
         console.log(response);
         var center = new google.maps.LatLng(latitude, longitute);
 
@@ -129,8 +138,12 @@ function useHikingApi(x, y) {
     })
 }
 
-
-
+//function to hide side bar stuff
+var hideButton = $("#x")
+hideButton.click(function(){
+    console.log("cat")
+    $("#side-bar").addClass("hidden");
+})
 
 
 var map
