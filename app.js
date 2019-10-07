@@ -140,6 +140,7 @@ var hideButton = $("#x")
 hideButton.click(function(){
     console.log("cat")
     $("#side-bar").addClass("hidden");
+    
 })
 
 
