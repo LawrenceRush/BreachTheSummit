@@ -69,6 +69,14 @@ html, body {
   }
 
 /* end */
+h6{
+    text-align: center;
+}
+
+.zIndexUp{
+    z-index: 1000;
+}
+
 
 /* Meeras code */
 
@@ -107,6 +115,12 @@ html, body {
     animation: slide 1s forwards;
 }
 
+#side-bar.hidden {
+    left: 0%;
+    -webkit-animation: slideBack 1s forwards;
+    animation: slideBack 1s forwards;
+}
+
 #side-bar {
     background-color: #f1f1f1;
     padding: 5px 10px 10px 20px;
@@ -131,6 +145,17 @@ html, body {
     background-color: #ed3330;
   }
 
+  #x {
+    position: relative;
+    float: left;
+    background: red;
+	color: white;
+    top: -10px;
+    left: -10px;
+    margin-top: 10px;
+}
+
+
 @-webkit-keyframes slide {
     100% { left: 0; }
 }
@@ -138,6 +163,15 @@ html, body {
 @keyframes slide {
     100% { left: 0; }
 }
+
+@-webkit-keyframes slideBack {
+    100% { left: -25%; }
+}
+
+@keyframes slideBack {
+    100% { left: -25%; }
+}
+
 /* end */
 
 /* MEDIA QUERY */
