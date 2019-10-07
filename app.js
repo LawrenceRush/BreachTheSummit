@@ -12,14 +12,10 @@ var longitute = -117.8425
 //Side bar suff
 
 function fillUpSideBar(response) {
-    
     var sideBar = $("#side-bar");
     sideBar.empty();
     sideBar.append("<button id = 'x'> X </button>")
     sideBar.append("<h6> Trail Listing </<h6>")
-   
-    
-    
     for (var i = 0; i < response.trails.length; i++) {
         var sideBarChild = $("<div id = 'sidebar-div'>" + (parseInt(i)+1) + "." + " Name: " + response.trails[i].name + "<br>" + "Length: " + response.trails[i].length + " mi " + "<br>" + "Difficulty: " + response.trails[i].difficulty + "<br>" + "Summary: " + response.trails[i].summary +  "<br>" + "<hr style=border: 4px solid black; />" + "</div>");
         sideBarChild.css('display', 'none');
@@ -35,7 +31,7 @@ function fillUpSideBar(response) {
 function testAPI() {
     $("#side-bar").removeClass("hidden");
     $("#side-bar").addClass("visible");
-
+    $(".z-depth-4").addClass("slide-out");
     var userSearch = $("#user-search").val();
     console.log(userSearch);
     var locationIqKey = "785528bf443c15"
@@ -86,6 +82,8 @@ function useHikingApi(x, y) {
         console.log("cat")
         $("#side-bar").removeClass("visible");
         $("#side-bar").addClass("hidden");
+        $(".z-depth-4").removeClass("slide-out");
+        $(".z-depth-4").addClass("slide-in");
 
 })
         console.log(response);
@@ -119,9 +117,8 @@ function useHikingApi(x, y) {
                             "<div>" + "Length: " + response.trails[i].length + " miles &nbsp" + " Stars: " + response.trails[i].stars + "</div>" + "<br>" +
                             "<img src = " + response.trails[i].imgSmall + ">"
                     });
-                    console.log(infowindow);
-                     infowindow.setZIndex(1000);
                     infowindow.open(map, tMarker);
+
                     google.maps.event.addListener(tMarker, 'mouseout', function () {
 
                         infowindow.close(map, tMarker);
@@ -143,6 +140,7 @@ var hideButton = $("#x")
 hideButton.click(function(){
     console.log("cat")
     $("#side-bar").addClass("hidden");
+    
 })
 
 
