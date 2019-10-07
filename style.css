@@ -53,6 +53,12 @@ html, body {
 h6{
     text-align: center;
 }
+
+.zIndexUp{
+    z-index: 1000;
+}
+
+
 /* Meeras code */
 
 
@@ -113,6 +119,16 @@ h6{
   .widget-1 button:hover {
     background-color: #ed3330;
   }
+
+  #x {
+    position: relative;
+    float: left;
+    background: red;
+	color: white;
+    top: -10px;
+    left: -10px;
+    margin-top: 10px;
+}
 
 @-webkit-keyframes slide {
     100% { left: 0; }

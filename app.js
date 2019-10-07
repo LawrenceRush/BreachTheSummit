@@ -14,6 +14,7 @@ function fillUpSideBar(response) {
     
     var sideBar = $("#side-bar");
     sideBar.empty();
+    sideBar.append("<button id = 'x'> X </button>")
     sideBar.append("<h6> Trail Listing </<h6>")
    
     
@@ -105,11 +106,12 @@ function useHikingApi(x, y) {
 
                 google.maps.event.addListener(tMarker, 'mouseover', function () {
                     infowindow = new google.maps.InfoWindow({
-                        content: "<div>" + response.trails[i].name + "</div>" + "<br>" +
+                        content: "<div class=zIndexUp>" + response.trails[i].name + "</div>" + "<br>" +
                             "<div>" + "Length: " + response.trails[i].length + " miles &nbsp" + " Stars: " + response.trails[i].stars + "</div>" + "<br>" +
                             "<img src = " + response.trails[i].imgSmall + ">"
                     });
-                    infowindow.setAttribute("class", "zIndexUp")
+                    console.log(infowindow);
+                     infowindow.setZIndex(1000);
                     infowindow.open(map, tMarker);
                     google.maps.event.addListener(tMarker, 'mouseout', function () {
 
