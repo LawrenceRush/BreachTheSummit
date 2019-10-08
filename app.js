@@ -1,6 +1,6 @@
 //Lawrence's stuff
 
-
+var gmarkers = [];
 
 //Submit Button
 $("#submit").click(testAPI)
@@ -17,7 +17,7 @@ function fillUpSideBar(response) {
     sideBar.append("<button id = 'x'> X </button>")
     sideBar.append("<h6> Trail Listing </<h6>")
     for (var i = 0; i < response.trails.length; i++) {
-        var sideBarChild = $("<div id = 'sidebar-div'>" + (parseInt(i)+1) + "." + " Name: " + response.trails[i].name + "<br>" + "Length: " + response.trails[i].length + " mi " + "<br>" + "Difficulty: " + response.trails[i].difficulty + "<br>" + "Summary: " + response.trails[i].summary +  "<br>" + "<hr style=border: 4px solid black; />" + "</div>");
+        var sideBarChild = $("<div id = 'sidebar-div'>" + (parseInt(i) + 1) + "." + " Name: " + response.trails[i].name + "<br>" + "Length: " + response.trails[i].length + " mi " + "<br>" + "Difficulty: " + response.trails[i].difficulty + "<br>" + "Summary: " + response.trails[i].summary + "<br>" + "<hr style=border: 4px solid black; />" + "</div>");
         sideBarChild.css('display', 'none');
         sideBar.append(sideBarChild);
         sideBarChild.show('slow');
@@ -29,12 +29,9 @@ function fillUpSideBar(response) {
 
 //Function that initiates geocoding
 function testAPI() {
-    $("#side-bar").removeClass("hidden");
-    $("#side-bar").addClass("visible");
-    $(".z-depth-4").addClass("slide-out");
-    $(".z-depth-4").removeClass("slide-in");
+    removeMarkers();
+    setAnimations1();
     var userSearch = $("#user-search").val();
-    console.log(userSearch);
     var locationIqKey = "785528bf443c15"
     var searchStr = userSearch.replace(' ', '+');
     var queryURL = "https://us1.locationiq.com/v1/search.php?key=" + locationIqKey + "&q=" + searchStr + "&format=json";
@@ -44,20 +41,11 @@ function testAPI() {
     }).then(function (response) {
         //Assign lats to use with hiking api. Latitudes for google maps api
         var lat = response[0].lat
-        latitude = lat
+        latitude = parseFloat(lat)
         var lon = response[0].lon
-        longitute = lon
-        console.log("Latitude is " + lat);
-        console.log(latitude)
-        console.log("Longitute is " + lon);
+        longitute = parseFloat(lon)
         useHikingApi(lat, lon)
-        console.log(longitute);
-
-
     })
-
-    latitude = parseFloat(latitude);
-    longitute = parseFloat(longitute);
 }
 //Accessing HikingProject API
 
@@ -68,47 +56,34 @@ function useHikingApi(x, y) {
 
     var lat = x.slice(0, -3)
     var lon = y.slice(0, -3)
-
     var queryURL = "https://www.hikingproject.com/data/get-trails?lat=" + lat + "&lon=" + lon + "&maxDistance=10&key=" + hikingProjectKey;
-    console.log(queryURL)
-
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function (response) {
-
         fillUpSideBar(response)
         var hideButton = $("#x")
-        hideButton.click(function(){
-        console.log("cat")
-        $("#side-bar").removeClass("visible");
-        $("#side-bar").addClass("hidden");
-        $(".z-depth-4").removeClass("slide-out");
-        $(".z-depth-4").addClass("slide-in");
-
-})
-        console.log(response);
+        hideButton.click(function () {
+            setAnimations2();
+        })
         var center = new google.maps.LatLng(latitude, longitute);
-
         map.setZoom(11);
         map.panTo(center);
-
         marker = new google.maps.Marker({
             position: center,
             map: map
         });
-        console.log(response.trails.length)
-
+        gmarkers.push(marker)
         //Google maps navigation and markers
 
         for (var i = 0; i < response.trails.length; i++) {
-            console.log(parseFloat(response.trails[i].latitude), parseFloat(response.trails[i].longitude));
             var tLocaton = new google.maps.LatLng(parseFloat(response.trails[i].latitude), parseFloat(response.trails[i].longitude));
             var tMarker = new google.maps.Marker({
                 position: tLocaton,
                 map: map,
                 icon: "photos/hikingDude.png"
             });
+            gmarkers.push(tMarker);
             //Function for multiple marker info boxes
             (function (tMarker, i) {
 
@@ -130,6 +105,7 @@ function useHikingApi(x, y) {
 
 
         }
+        console.log(gmarkers);
 
 
 
@@ -138,12 +114,31 @@ function useHikingApi(x, y) {
 
 //function to hide side bar stuff
 var hideButton = $("#x")
-hideButton.click(function(){
+hideButton.click(function () {
     console.log("cat")
     $("#side-bar").addClass("hidden");
-    
+
 })
 
+function setAnimations1() {
+    $("#side-bar").removeClass("hidden");
+    $("#side-bar").addClass("visible");
+    $(".z-depth-4").addClass("slide-out");
+    $(".z-depth-4").removeClass("slide-in");
+}
+
+function setAnimations2() {
+    $("#side-bar").removeClass("visible");
+    $("#side-bar").addClass("hidden");
+    $(".z-depth-4").removeClass("slide-out");
+    $(".z-depth-4").addClass("slide-in");
+}
+
+function removeMarkers(map){
+    for(var i=0; i<gmarkers.length; i++){
+        gmarkers[i].setMap(null);
+    }
+}
 
 var map
 
@@ -157,6 +152,7 @@ function initMap() {
         document.getElementById('map'), { zoom: 4, center: uluru });
     // The marker, positioned at Uluru
     var marker = new google.maps.Marker({ position: uluru, map: map });
+    gmarkers.push(marker)
     map.setZoom(11);
 
 }
