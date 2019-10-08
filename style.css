@@ -1,0 +1,241 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Dillons code */
+.my-header{
+    margin: 0 auto;
+    margin-top: 1%;
+    width: 50%;
+    background-color: #546e7a;
+    border-radius: 15px;
+    border: 2px solid #ffffff;
+    z-index: 15;
+    position: fixed;
+    left: 25%;
+}
+
+.my-header.slide-out{
+    top: 0%;
+    -webkit-animation: slide-out-top 1s forwards;
+    animation: slide-out-top 1s forwards;
+}
+
+.searchbar.slide-out{
+    top: 15%;
+    -webkit-animation: slide-out-top 1s forwards;
+    animation: slide-out-top 1s forwards;
+}
+@-webkit-keyframes slide-out-top {
+    100% { top: -25%; }
+}
+
+@keyframes slide-out-top {
+    100% { top: -25%; }
+}
+
+.my-header.slide-in{
+    top: -25%;
+    -webkit-animation: slide-in2 1s forwards;
+    animation: slide-in2 1s forwards;
+}
+
+.searchbar.slide-in{
+    top: -25%;
+    -webkit-animation: slide-in 1s forwards;
+    animation: slide-in 1s forwards;
+}
+@-webkit-keyframes slide-in {
+    100% { top: 15%; }
+}
+
+@keyframes slide-in2 {
+    100% { top: 0%; }
+}
+
+
+
+
+.main-title{
+    font-family: 'Palanquin Dark', sans-serif;
+    font-size: 2.5vw;
+    margin-top: 0.5%; 
+    top: 8%;
+    position: relative;
+}
+
+.material-icons{
+    font-size: 30px;
+}
+
+.front-logo{
+    left: 15%;
+    bottom: 5%;
+    position: absolute;
+}
+
+.back-logo{
+    left: 80%;
+    bottom: 5%;
+    position: absolute;
+}
+
+
+#map {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    background-color: grey;
+  }
+
+/* end */
+h6{
+    text-align: center;
+}
+
+.zIndexUp{
+    z-index: 1000;
+}
+
+
+/* Meeras code */
+
+
+.searchbar {
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: white;
+    width: 30%;
+    text-align: center;
+    margin: 0 auto;
+    /* margin-right:auto;
+    margin-left:auto; */
+    font-family: 'Palanquin Dark', sans-serif;
+    z-index: 15;
+    position: fixed;
+    left: 35%;
+    top: 15%;
+}
+
+#side-bar {
+    position: fixed;
+    width: calc(25% - 80px);
+    height: calc(100% - 130px);
+    top: 20px;
+    left: -25%;
+    background-color: white;
+    box-sizing: border-box;
+    margin: 65px;
+    border-radius: 25px;
+   
+    
+}
+
+#side-bar.visible {
+    left: -25%;
+    -webkit-animation: slide 1s forwards;
+    animation: slide 1s forwards;
+}
+
+
+
+#side-bar {
+    background-color: #f1f1f1;
+    padding: 5px 10px 10px 20px;
+    border: 3px solid #494949;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    
+  }
+  .widget-1 h3 {
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .widget-1 p {
+    font-style: italic;
+  }
+  .widget-1 button {
+    background-color: #494949;
+    border-radius: 6px;
+  }
+  .widget-1 button:hover {
+    background-color: #ed3330;
+  }
+
+  #x {
+    position: relative;
+    float: left;
+    background: rgb(98, 140, 255);
+	color: white;
+    top: -10px;
+    left: -10px;
+    margin-top: 10px;
+    border: none;
+}
+
+#side-bar.hidden {
+    left: 0%;
+    -webkit-animation: slideBack 1s forwards;
+    animation: slideBack 1s forwards;
+}
+
+@-webkit-keyframes slide {
+    100% { left: 0; }
+}
+
+@keyframes slide {
+    100% { left: 0; }
+}
+
+@-webkit-keyframes slideBack {
+    100% { left: -25%; }
+}
+
+@keyframes slideBack {
+    100% { left: -25%; }
+}
+
+/* end */
+
+/* MEDIA QUERY */
+@media only screen and (max-width: 900px){
+
+}
+
+@media only screen and (max-width: 835px){
+    .main-title{
+        font-size: 2.5vw;
+        top: 20%;
+    }
+}
+
+@media only screen and (max-width: 415px){
+    .main-title{
+        font-size: 2.5vw;
+        top: 20%;
+    }
+}
+
+
+  
+  #side-bar::-webkit-scrollbar{
+    width: 8px;
+    background-color: transparent;
+    
+
+    
+  }
+
+  #side-bar::-webkit-scrollbar-thumb{
+    border-radius: 20px;
+    background-color: green;
+    box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+   
+    
+  }
+  
+ 
