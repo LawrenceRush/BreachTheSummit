@@ -19,14 +19,14 @@ html, body {
 
 .my-header.slide-out{
     top: 0%;
-    -webkit-animation: slide-out-top 2s forwards;
-    animation: slide-out-top 2s forwards;
+    -webkit-animation: slide-out-top 1s forwards;
+    animation: slide-out-top 1s forwards;
 }
 
 .searchbar.slide-out{
     top: 15%;
-    -webkit-animation: slide-out-top 2s forwards;
-    animation: slide-out-top 2s forwards;
+    -webkit-animation: slide-out-top 1s forwards;
+    animation: slide-out-top 1s forwards;
 }
 @-webkit-keyframes slide-out-top {
     100% { top: -25%; }
@@ -38,14 +38,14 @@ html, body {
 
 .my-header.slide-in{
     top: -25%;
-    -webkit-animation: slide-in2 2s forwards;
-    animation: slide-in2 2s forwards;
+    -webkit-animation: slide-in2 1s forwards;
+    animation: slide-in2 1s forwards;
 }
 
 .searchbar.slide-in{
     top: -25%;
-    -webkit-animation: slide-in 2s forwards;
-    animation: slide-in 2s forwards;
+    -webkit-animation: slide-in 1s forwards;
+    animation: slide-in 1s forwards;
 }
 @-webkit-keyframes slide-in {
     100% { top: 15%; }
@@ -129,6 +129,8 @@ h6{
     box-sizing: border-box;
     margin: 65px;
     border-radius: 25px;
+   
+    
 }
 
 #side-bar.visible {
@@ -146,6 +148,7 @@ h6{
     -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
     -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
     box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    
   }
   .widget-1 h3 {
     font-weight: bold;
@@ -166,12 +169,21 @@ h6{
   #x {
 	position: relative;
     float: left;
+<<<<<<< HEAD
     background:lightseagreen;
+=======
+    background: rgb(98, 140, 255);
+>>>>>>> origin/Lawrence
 	color: white;
     top: -10px;
     left: -10px;
     margin-top: 10px;
+<<<<<<< HEAD
   }
+=======
+    border: none;
+}
+>>>>>>> origin/Lawrence
 
 #side-bar.hidden {
     left: 0%;
@@ -215,3 +227,23 @@ h6{
         top: 20%;
     }
 }
+
+
+  
+  #side-bar::-webkit-scrollbar{
+    width: 8px;
+    background-color: transparent;
+    
+
+    
+  }
+
+  #side-bar::-webkit-scrollbar-thumb{
+    border-radius: 20px;
+    background-color: green;
+    box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+   
+    
+  }
+  
+ 
