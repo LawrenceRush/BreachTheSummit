@@ -176,6 +176,12 @@ function ipLookUp() {
 
 ipLookUp()
 
+$(document).keypress(function(e){
+    if (e.which == 13){
+        testAPI();
+    }
+});
+
 
 
 
