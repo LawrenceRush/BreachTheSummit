@@ -129,6 +129,7 @@ h6{
     box-sizing: border-box;
     margin: 65px;
     border-radius: 25px;
+    min-width: 180px;
    
     
 }
@@ -169,21 +170,13 @@ h6{
   #x {
 	position: relative;
     float: left;
-<<<<<<< HEAD
-    background:lightseagreen;
-=======
     background: rgb(98, 140, 255);
->>>>>>> origin/Lawrence
 	color: white;
     top: -10px;
     left: -10px;
     margin-top: 10px;
-<<<<<<< HEAD
-  }
-=======
     border: none;
 }
->>>>>>> origin/Lawrence
 
 #side-bar.hidden {
     left: 0%;

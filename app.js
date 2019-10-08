@@ -1,6 +1,6 @@
 //Lawrence's stuff
 
-
+var gmarkers = [];
 
 //Submit Button
 $("#submit").click(testAPI)
@@ -29,6 +29,7 @@ function fillUpSideBar(response) {
 
 //Function that initiates geocoding
 function testAPI() {
+    removeMarkers();
     setAnimations1();
     var userSearch = $("#user-search").val();
     var locationIqKey = "785528bf443c15"
@@ -72,8 +73,7 @@ function useHikingApi(x, y) {
             position: center,
             map: map
         });
-        console.log(response.trails.length)
-
+        gmarkers.push(marker)
         //Google maps navigation and markers
 
         for (var i = 0; i < response.trails.length; i++) {
@@ -83,6 +83,7 @@ function useHikingApi(x, y) {
                 map: map,
                 icon: "photos/hikingDude.png"
             });
+            gmarkers.push(tMarker);
             //Function for multiple marker info boxes
             (function (tMarker, i) {
 
@@ -104,6 +105,7 @@ function useHikingApi(x, y) {
 
 
         }
+        console.log(gmarkers);
 
 
 
@@ -132,6 +134,11 @@ function setAnimations2() {
     $(".z-depth-4").addClass("slide-in");
 }
 
+function removeMarkers(map){
+    for(var i=0; i<gmarkers.length; i++){
+        gmarkers[i].setMap(null);
+    }
+}
 
 var map
 
@@ -145,6 +152,7 @@ function initMap() {
         document.getElementById('map'), { zoom: 4, center: uluru });
     // The marker, positioned at Uluru
     var marker = new google.maps.Marker({ position: uluru, map: map });
+    gmarkers.push(marker)
     map.setZoom(11);
 
 }
