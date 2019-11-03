@@ -52,7 +52,7 @@ function testAPI() {
 
 function useHikingApi(x, y) {
 
-    var hikingProjectKey = "200607956-eec4e186d6b9ed72c720132ab61fceb2";
+  var hikingProjectKey = "200607956-eec4e186d6b9ed72c720132ab61fceb2";
 
     var lat = x.slice(0, -3)
     var lon = y.slice(0, -3)
@@ -81,7 +81,7 @@ function useHikingApi(x, y) {
             var tMarker = new google.maps.Marker({
                 position: tLocaton,
                 map: map,
-                icon: "photos/hikingDude.png"
+                icon: "photos/hiking.png"
             });
             gmarkers.push(tMarker);
             //Function for multiple marker info boxes
