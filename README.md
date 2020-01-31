@@ -6,4 +6,4 @@ App organization - The app is organized in a standard css, html, and javascript 
 
 Instructions - Simply enter a location into the search bar and see hikes near that location. Hit the x in the top corner of the info sidebar(it will pop in after the search) to do another search.
 
-Link to deployed -- 
+Link to deployed -- https://lawrencerush.github.io/BreachTheSummit/
